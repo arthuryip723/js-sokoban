@@ -10,6 +10,9 @@
     <h1>Sokoban</h1>
 
     <div class="main"></div>
+    <div>
+      <select class="level"></select>
+    </div>
     <div class="modal">
       You ate <strong class="score"></strong> apples!<br>
       Would you like to play again?<br><br>
@@ -28,6 +31,17 @@
         //   $(".modal").removeClass("is-open");
         //   new SG.View($(".main"));
         // });
+        for (var i = 0; i < 40; i++) {
+          $option = $('<option/>');
+          $option.attr('value', i);
+          $option.html('Level ' + (i + 1));
+          $('.level').append($option);
+        }
+
+        $('.level').change(function () {
+          new Sokoban.View($(".main"), $(this).val());
+          // alert($(this).val());
+        });
       });
     </script>
   </body>
