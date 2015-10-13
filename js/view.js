@@ -1,9 +1,9 @@
 (function () {
   window.Sokoban = window.Sokoban || {};
 
-  var View = Sokoban.View = function ($el) {
+  var View = Sokoban.View = function ($el, level) {
     this.$el = $el;
-    this.game = new Sokoban.Game();
+    this.game = new Sokoban.Game(level);
     this.setupGrid();
     $(window).on('keydown', this.handleKeyPress.bind(this));
     // console.log("intializing...");
@@ -64,12 +64,18 @@
     //     return false;
     // }
 
-    if (keynum == 37 || keynum == 100 || keynum == 65) { this.game.move(Sokoban.Game.WEST); this.render(); return false; }
-    if (keynum == 39 || keynum == 102 || keynum == 68) { this.game.move(Sokoban.Game.EAST); this.render(); return false; }
-    if (keynum == 38 || keynum == 104 || keynum == 87) { this.game.move(Sokoban.Game.NORTH); this.render(); return false; }
-    if (keynum == 40 || keynum ==  98 || keynum == 83) { this.game.move(Sokoban.Game.SOUTH); this.render(); return false; }
+    if (keynum == 37 || keynum == 100 || keynum == 65) { this.game.move(Sokoban.Game.WEST); this.render(); this.checkWon(); return false; }
+    if (keynum == 39 || keynum == 102 || keynum == 68) { this.game.move(Sokoban.Game.EAST); this.render(); this.checkWon(); return false; }
+    if (keynum == 38 || keynum == 104 || keynum == 87) { this.game.move(Sokoban.Game.NORTH); this.render(); this.checkWon(); return false; }
+    if (keynum == 40 || keynum ==  98 || keynum == 83) { this.game.move(Sokoban.Game.SOUTH); this.render(); this.checkWon(); return false; }
 
 
     return true;
+  };
+
+  View.prototype.checkWon = function () {
+    if (this.game.isWon()) {
+      alert("You win!");
+    }
   };
 })();

@@ -1,7 +1,7 @@
 (function () {
   window.Sokoban = window.Sokoban || {};
 
-  var Game = Sokoban.Game = function () {
+  var Game = Sokoban.Game = function (level) {
     // load map
     this.width = 19;
     this.height = 16;
@@ -12,7 +12,7 @@
     //   var row = [];
     //   for (var j = 0; j < this.wied)
     // }
-    this.load(Game.sb_maps[0]);
+    this.load(Game.sb_maps[level]);
   };
 
   Game.NULL = 0;
@@ -55,10 +55,10 @@
     this.grid[this.player_location] -= Game.PLAYER;
     this.player_location = dest;
     console.log("Remaining boxes: " + this.numOfRemainingBase);
-    if (this.isWon()) {
-      alert("You Win!");
-      // return;
-    }
+    // if (this.isWon()) {
+    //   alert("You Win!");
+    //   // return;
+    // }
   };
 
   Game.prototype.push_box = function (pos, dir) {
