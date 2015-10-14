@@ -34,9 +34,21 @@
     // use the $el here.
     // need to have width and height
     // debugger
+    this.$el.find('li').removeClass();
     for (var i = 0; i < this.game.grid.length; i++) {
-      this.$el.find('li').eq(i).html(this.game.grid[i]);
+      // this.$el.find('li').eq(i).html(this.game.grid[i]);
       // console.log(this.game.grid[i]);
+      var targetClass;
+      switch (this.game.grid[i]) {
+        case Sokoban.Game.NULL: targetClass = "soko-indent"; break;
+        case Sokoban.Game.PLAYER: targetClass = "soko-worker"; break;
+        case Sokoban.Game.BOX: targetClass = "soko-box"; break;
+        case Sokoban.Game.WALL: targetClass = "soko-wall"; break;
+        case Sokoban.Game.BASE: targetClass = "soko-base"; break;
+        case (Sokoban.Game.BASE + Sokoban.Game.BOX): targetClass = "soko-box soko-base"; break;
+        case (Sokoban.Game.BASE + Sokoban.Game.PLAYER): targetClass = "soko-worker"; break;
+      }
+      this.$el.find('li').eq(i).addClass(targetClass);
     }
   };
 

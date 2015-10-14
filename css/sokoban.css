@@ -21,9 +21,10 @@ body {
 }
 
 .main {
-  border: 10px solid #FFA500;
+  /*border: 10px solid #FFA500;*/
+  border: 10px solid black;
   display: inline-block;
-  background: #00ffff;
+  /*background: #00ffff;*/
 }
 
 ul:after {
@@ -36,5 +37,33 @@ li {
   float: left;
   width: 20px;
   height: 20px;
-  border: 1px solid;
+  /*border: 1px solid;*/
+}
+
+.soko-indent,
+.soko-floor,
+.soko-wall,
+.soko-base,
+.soko-box,
+.soko-worker {
+  background : #c5c5c5;
+}
+
+.soko-wall {
+  background : #861410 url(sprites.png) 0 0 no-repeat;
+}
+.soko-base {
+  background : #c5c5c5 url(sprites.png) 0 -60px no-repeat;
+}
+.soko-box {
+  background : #c5c5c5 url(sprites.png) 0 -20px no-repeat;
+}
+.soko-worker {
+  background : #c5c5c5 url(sprites.png) 0 -80px no-repeat;
+}
+.soko-box.soko-base {
+  background : #c5c5c5 url(sprites.png) 0 -40px no-repeat;
+}
+.soko-solved .soko-room * {
+  opacity : .8;
 }
