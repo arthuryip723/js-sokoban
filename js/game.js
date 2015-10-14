@@ -54,7 +54,7 @@
     }
     this.grid[this.player_location] -= Game.PLAYER;
     this.player_location = dest;
-    console.log("Remaining boxes: " + this.numOfRemainingBase);
+    // console.log("Remaining boxes: " + this.numOfRemainingBase);
     // if (this.isWon()) {
     //   alert("You Win!");
     //   // return;

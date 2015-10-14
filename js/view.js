@@ -86,7 +86,9 @@
   };
 
   View.prototype.checkWon = function () {
-    if (this.game.isWon()) {
+    if (this.game.isWon() && !this.game.finished) {
+      // $(window).off("keydown", this.handleKeyPress.bind(this));
+      this.game.finished = true;
       alert("You win!");
     }
   };
