@@ -88,7 +88,8 @@
   View.prototype.checkWon = function () {
     if (this.game.isWon() && !this.game.finished) {
       // $(window).off("keydown", this.handleKeyPress.bind(this));
-      this.game.finished = true;
+      // this.game.finished = true;
+      $(window).off("keydown");
       alert("You win!");
     }
   };
